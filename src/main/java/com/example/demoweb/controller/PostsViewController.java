@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 @Controller
 
 public class PostsViewController {
+    @Autowired
+    PostService postsService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String list(Model model) {
@@ -24,8 +27,5 @@ public class PostsViewController {
     public String single(@PathVariable("id") Long id) {
         return "Здесь будет страница поста №" + id;
     }
-
-    @Autowired
-    PostService postsService;
 
 }
