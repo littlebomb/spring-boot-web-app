@@ -19,8 +19,7 @@ public class PostsCreateController {
         model.addAttribute("appName", "Моё супер работающее приложение");
         return "create";
     }
-
-    @RequestMapping(path = "new", method = RequestMethod.POST)
+    @RequestMapping(path = "/new", method = RequestMethod.POST)
     public String doCreate(@ModelAttribute("text") String text){
         postService.create(text);
         return "redirect:/";
